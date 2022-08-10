@@ -1,8 +1,8 @@
 # WMI In-House Framework
 
-The WMI In-House framework is designed to try and make mission making faster and more approachable, as well as provide some useful in-game admin tools to facilitate smooth running of ops.
+The WMI In-House framework (based out of Teamwork) is designed to try and make mission making faster and more approachable, as well as provide some useful in-game admin tools to facilitate smooth running of ops.
 
-PLEASE INSTALL IT AS A LOCAL MOD CURRENTLY - A workshop build will be released later once known issues are worked out.
+https://steamcommunity.com/sharedfiles/filedetails/?id=2780835041
 
 ## Core Features:
 - Extensive 3DEN integration
