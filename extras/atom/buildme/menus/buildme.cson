@@ -1,0 +1,9 @@
+'menu': [{
+  label: 'Packages'
+  submenu: [
+    label: 'WMI builder',
+    submenu: [
+        { label: 'Build', command: 'buildme:build' },
+    ]
+  ]
+}]

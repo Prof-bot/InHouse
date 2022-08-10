@@ -1,0 +1,8 @@
+name = "WMI"
+prefix = "wmi"
+author = "WMI Team"
+template = "cba"
+mainprefix = "x"
+files = ["mod.cpp"]
+folder_optionals = true
+sig_version = 3

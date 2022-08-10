@@ -1,0 +1,59 @@
+wmi_version[] = {1,1,1}; // DO NOT CHANGE THIS. This is the core version of the template that your mission was started with.
+enableDebugConsole = 1; // Allows the logged in admin to use the debug console from the escape page.
+
+// Use a randomized loading image from WMI. Set your own loading image with e.g. overviewPicture = "image.jpg"; Yes there's only one atm, but suggestions for more are welcome.
+overviewPicture = __EVAL(selectRandom ['\x\wmi\addons\common\ui\loadscreens\1.jpg']);
+
+class CfgDebriefing
+{
+    class Success
+    {
+        title = "Mission Success";
+        subtitle = "";
+        description = "";
+        // pictureBackground = "";
+        // picture = "";
+        // pictureColor[] = {0.0,0.3,0.6,1};
+    };
+    class Failed
+    {
+        title = "Mission Failed";
+        subtitle = "";
+        description = "";
+        // pictureBackground = "";
+        // picture = "";
+        // pictureColor[] = {0.0,0.3,0.6,1};
+    };
+    class CustomEnding1
+    {
+        title = "Custom Ending #1";
+        subtitle = "";
+        description = "*** Explanation for the debriefing page ***";
+        // pictureBackground = "";
+        // picture = "";
+        // pictureColor[] = {0.0,0.3,0.6,1};
+    };
+
+};
+
+// DO NOT REMOVE. Include the macros for custom loadouts.
+#include "\x\wmi\addons\assigngear\loadouts\macros.inc"
+
+class CfgLoadouts
+{
+    class EXAMPLE_LOADOUT
+    {
+        displayName = "Example Loadout";
+        #include "loadouts\example_loadout.hpp"
+    };
+};
+
+class CfgDebriefingSections
+{
+    #include "\x\wmi\addons\adminmenu\debriefAdminLog.inc"
+    class acex_killTracker
+    {
+        title = "ACEX Killed Events";
+        variable = "acex_killTracker_outputText";
+    };
+};

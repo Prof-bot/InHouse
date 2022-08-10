@@ -1,0 +1,46 @@
+#include "\x\wmi\addons\assignGear\script_component.hpp"
+/*
+ * Name = WMI_assignGear_fnc_onEdenMessageRecieved
+ * Author = Prof
+ *
+ * Arguments:
+ * UI function do not use
+ *
+ * Return:
+ * UI function do not use
+ *
+ * Description:
+ * When a message is recieved
+ */
+
+params ["_messageId"];
+private _return = false;
+
+if (_messageId isEqualTo 0) then { //Mission saved.
+    if (isNil QGVAR(descriptionExt)) then { GVAR(descriptionExt) = "";}; // on mission load will be niled.
+
+    if FILE_EXISTS("description.ext") then {
+        // Check if description.ext has changed
+        private _newdescription = preprocessFile "description.ext";
+        if (!(_newdescription isEqualTo GVAR(descriptionExt))) then {
+
+            // Clear namespace, and in turn all cached loadouts
+            GVAR(namespace) call CBA_fnc_deleteNamespace;
+            call FUNC(initNamespace);
+
+            //Re-apply gear attributes to take care of potential gear changes.
+            {
+                (_x get3DENAttribute "WMI_assignGear_full") params ["_value"];
+                [_x,_value] call wmi_assignGear_fnc_helper;
+            } forEach (allUnits);
+            GVAR(descriptionExt) = _newdescription;
+            ["Scenario Saved - description.ext changed, reapplying WMI gear"] call BIS_fnc_3DENNotification;
+            _return = true;
+        };
+    } else {
+        GVAR(descriptionExt) = "";
+    };
+
+};
+
+_return;
